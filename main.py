@@ -134,6 +134,7 @@ def check_finish(markers):
         # not done
         return False
 
+
 print("Welcome to the Peg Board Game!")
 
 start_time = time.time()
