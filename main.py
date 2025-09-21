@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from typing import ClassVar
+from typing import ClassVar, Tuple, Literal
 import time
 
 """
@@ -11,12 +11,12 @@ to track each move and to reverse if an unsuccessful finish is reached.
 @dataclass(slots=True)
 class Peg:
     number: int
-    moves: list[tuple, ...]
+    moves: list[Tuple]
 
 
 class Board:
     # Class variable that holds the move rules for each position on the peg board.
-    rules: ClassVar[list[list[tuple, ...]]] = [
+    rules: ClassVar[list[list[Tuple]]] = [
         [(4, 2), (6, 3)],
         [(7, 4), (9, 5)],
         [(8, 5), (10, 6)],
@@ -42,7 +42,7 @@ class Board:
             self.all_pegs.append(Peg(i, r))
 
 
-def first_peg_position() -> int:
+def first_peg_position() -> Literal[1, 4, 5, 6, 13] | None:
     """
     Function that will take a user's input as the first empty peg hole.
     :return:
